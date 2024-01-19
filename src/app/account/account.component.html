@@ -1,0 +1,56 @@
+
+
+  <!-- <button (click)="setData()">getData</button> -->
+
+
+
+  <!-- <button (click)="refreshData()">Refresh</button> -->
+  <table class="table align-middle " style="width:800px;">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Account Name</th>
+        <th scope="col">Acoount Status</th>
+        <th scope="col">Update Acoount Status</th>
+        <th scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of accountdataArray; let i=index">
+        <th scope="row">{{i}}</th>
+        <td>{{data.accountName}}</td>
+        <td>{{data.accountStatus}}</td>
+        <td><button class="btn btn-primary" (click)="update(i!,data.accountName!,data.accountStatus!)">Edit</button></td>
+        <td>
+            <button class="btn btn-success" (click)="updateAccountStatusFunc(i,btnact.value)" #btnact value="Active">Active</button>&nbsp;
+            <button class="btn btn-danger"(click)="updateAccountStatusFunc(i,btninact.value)" #btninact value="InActive">InActive</button>&nbsp;
+            <button class="btn btn-warning" (click)="updateAccountStatusFunc(i,btnunkn.value)" #btnunkn value="Unknown">UnKnown</button>&nbsp;
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+
+
+  
+  <div class="container mt-3" *ngIf="checkform">
+    <h2 class="updateForm">Update Form</h2>
+    <div class="row">
+        <div class="col-xs-12">
+        <label >Account Name</label>
+        <input type="text" [(ngModel)]="aname" name="aname" class="form-control"><br>
+
+        <label >Selectv Status</label>&nbsp;
+        <select class="form-control" [(ngModel)]="astatus" name="astatus">
+            <option value="Active">Active</option>
+            <option value="InActive">InActive</option>
+            <option value="Unknown">Unknown</option>
+        </select><br><br>
+
+        <button class="btn btn-success" (click)="updateData()">Update</button>
+    </div>
+
+    </div>
+</div>

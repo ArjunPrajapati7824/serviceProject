@@ -1,0 +1,20 @@
+   
+ <h1 class="registerForm mt-3" >Register Form</h1>  
+<div class="container mt-3" >
+    <div class="row">
+        <div class="col-xs-12" *ngIf="isok">
+        <label >Account Name</label>
+        <input type="text" #accountNameData class="form-control"><br>
+
+        <label >Selectv Status</label>&nbsp;
+        <select class="form-control" #statusData>
+            <option value="Active">Active</option>
+            <option value="InActive">InActive</option>
+            <option value="Unknown">Unknown</option>
+        </select><br><br>
+
+        <button class="btn btn-success" (click)="addData()">Submit</button>
+    </div>
+
+    </div>
+</div> 
